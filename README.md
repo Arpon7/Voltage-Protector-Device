@@ -1,7 +1,7 @@
 Microcontroller-Based Voltage and Over-Current Protector
 
 An Arduino-based protection device that disconnects an appliance when the mains voltage surges or sags, or when the load draws too much current. Settings can be changed from the device (3 buttons and an LCD) or from a computer over a serial connection.
-Designed to be simulated in [https://wokwi.com](https://wokwi.com/projects/477511752993724417 .
+Designed to be simulated in (https://wokwi.com/projects/477511752993724417 .
 
  Features
 
