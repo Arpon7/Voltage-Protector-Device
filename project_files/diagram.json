@@ -1,0 +1,63 @@
+{
+  "version": 1,
+  "author": "Voltage Protector",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0, "left": 0, "attrs": {} },
+
+    { "type": "wokwi-potentiometer", "id": "potV", "top": -110, "left": 20, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "potI", "top": -110, "left": 140, "attrs": {} },
+
+    { "type": "wokwi-lcd1602", "id": "lcd", "top": -180, "left": 280, "attrs": { "pins": "i2c" } },
+
+    { "type": "wokwi-relay-module", "id": "relay", "top": 300, "left": 20, "attrs": {} },
+
+    { "type": "wokwi-pushbutton", "id": "btnMenu", "top": 320, "left": 200, "attrs": { "color": "blue" } },
+    { "type": "wokwi-pushbutton", "id": "btnUp", "top": 320, "left": 290, "attrs": { "color": "green" } },
+    { "type": "wokwi-pushbutton", "id": "btnDown", "top": 320, "left": 380, "attrs": { "color": "yellow" } },
+
+    { "type": "wokwi-buzzer", "id": "bz", "top": 200, "left": 330, "attrs": { "volume": "0.1" } },
+
+    { "type": "wokwi-led", "id": "ledG", "top": 90, "left": 480, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "ledR", "top": 90, "left": 540, "attrs": { "color": "red" } },
+    { "type": "wokwi-resistor", "id": "rG", "top": 170, "left": 450, "rotate": 90, "attrs": { "value": "220" } },
+    { "type": "wokwi-resistor", "id": "rR", "top": 170, "left": 510, "rotate": 90, "attrs": { "value": "220" } }
+  ],
+  "connections": [
+    [ "potV:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "potV:GND", "uno:GND.2", "black", [ "v0" ] ],
+    [ "potV:SIG", "uno:A0", "green", [ "v0" ] ],
+
+    [ "potI:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "potI:GND", "uno:GND.2", "black", [ "v0" ] ],
+    [ "potI:SIG", "uno:A1", "orange", [ "v0" ] ],
+
+    [ "lcd:GND", "uno:GND.2", "black", [ "h0" ] ],
+    [ "lcd:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "lcd:SDA", "uno:A4", "blue", [ "h0" ] ],
+    [ "lcd:SCL", "uno:A5", "purple", [ "h0" ] ],
+
+    [ "relay:VCC", "uno:5V", "red", [ "v0" ] ],
+    [ "relay:GND", "uno:GND.3", "black", [ "v0" ] ],
+    [ "relay:IN", "uno:7", "green", [ "v0" ] ],
+
+    [ "btnMenu:1.l", "uno:2", "blue", [ "v0" ] ],
+    [ "btnMenu:2.l", "uno:GND.1", "black", [ "v0" ] ],
+    [ "btnUp:1.l", "uno:3", "green", [ "v0" ] ],
+    [ "btnUp:2.l", "uno:GND.1", "black", [ "v0" ] ],
+    [ "btnDown:1.l", "uno:4", "yellow", [ "v0" ] ],
+    [ "btnDown:2.l", "uno:GND.1", "black", [ "v0" ] ],
+
+    [ "bz:1", "uno:GND.1", "black", [ "v0" ] ],
+    [ "bz:2", "uno:6", "red", [ "v0" ] ],
+
+    [ "uno:8", "rG:1", "green", [ "v0" ] ],
+    [ "rG:2", "ledG:A", "green", [ "v0" ] ],
+    [ "ledG:C", "uno:GND.1", "black", [ "v0" ] ],
+
+    [ "uno:9", "rR:1", "red", [ "v0" ] ],
+    [ "rR:2", "ledR:A", "red", [ "v0" ] ],
+    [ "ledR:C", "uno:GND.1", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
